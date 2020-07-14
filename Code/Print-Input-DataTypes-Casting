@@ -1,0 +1,93 @@
+#Print Statements
+'''
+print("Hello World")
+print(1)
+print("My age is", 23, ". Thank you.")
+print("hello 23")
+#Input statements
+print("Here is your input: ", input("Give an input: "))
+'''
+
+# Variables
+#Rules: Can't start with a number, can't be a keyword.
+'''
+numberVal4 = 12
+textVal = "Madhu"
+print(numberVal4)
+print(textVal)
+'''
+'''
+Data Types:
+  Numeric: int, float(Decimal value)
+  Text: str
+  Boolean: bool
+  Sequence: list, tuple, set
+  Mapping: dict
+'''
+#Integer: -infi to +infi
+'''
+intVal = 13
+floatVal = 54.32
+strVal = "Madhu"
+print(intVal)
+print(floatVal)
+'''
+
+#type()
+'''
+print(type(floatVal))
+print(type(intVal))
+print(type(strVal))
+'''
+
+#Random variable duplicate/assignment
+'''
+intVal = 15
+print(intVal)
+intVal = input("Give an input")
+print(intVal)
+'''
+
+#Type Casting
+intVal = 13
+floatVal = 54.32
+strVal = "Madhu"
+strIntVal = "123"
+strFloatVal = "123.23"
+
+'''
+Throws an error
+strToInt = int(strVal)
+strToFloat = float(strVal)
+'''
+
+intToFloat = float(intVal)
+floatToInt = int(floatVal)
+strToInt = int(strIntVal)
+strToFloat = float(strFloatVal)
+intToString = str(intVal)
+floatToString = str(floatVal)
+
+
+print(intToFloat)
+print(floatToInt)
+print(strToInt)
+print(strToFloat)
+print(intToString)
+print(floatToString)
+print("Integer to float:", type(intToFloat))
+print("Float to Integer:", type(floatToInt))
+
+print("Integer to String:", type(intToString))
+print("Float to String:", type(intToFloat))
+
+print("String to Float:", type(strToFloat))
+print("String to Integer:", type(strToInt))
+
+strVal = input("Enter an value:")
+intVal = int(input("Enter an integer value"))
+floatVal = float(input("Enter an float value"))
+
+print(type(strVal))
+print(type(intVal))
+print(type(floatVal))
