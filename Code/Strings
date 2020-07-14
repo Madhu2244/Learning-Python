@@ -1,0 +1,123 @@
+'''
+#Throws an error 
+#print(''hello' Good Morning')
+print('"hello" Good Morning')
+print("'hello!' Good Morning")
+
+print("""
+Hello my name is Madhu
+I study at Plano East
+Hello!
+""")
+
+ #"isn't it lovely"
+print('\'Hello!\' Good Morning')
+print('Isn\'t it lovely')
+
+#adding strings
+a = "Hi"
+b = "Hello"
+print()
+print(a + b)
+print(a*3)
+'''
+#Indexing with String
+'''
+Indexing with string
+       H   e   l   l   o   !       G   o   o   d       M   o   r   n   i   n   g
+Type1: 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18
+Type2: 19  18  17  16  15  14  13  12  11  10  9   8   7   6   5   4   3   2   1
+'''
+
+#a = "Hello! Good Morning"
+'''
+#if you are using negative index, remove the negative nad look at type 2
+print(a[5])
+print(a[-5]) #Index backwards
+print(a[0:5])
+print(a[7:11])
+print(a[12:8]) #Nothing printed
+print(a[-12:-1])
+print(a[-12:18])
+print(a[:6]) #prints from 0 to 6
+print(a[-12:])  #prints from -12 to end
+print (a[:]) #print whole thing
+'''
+#Slicing with Hopping
+'''
+print(a[0:12:2])
+print(a[0:19:6])
+print(a[0:19:-1])
+print(a[18:0:-1])
+print(a[10:6:-1])
+print(a[-9:-13:-1])
+print(a[-9:6:-1])
+print(a[::-1])
+print(a[::])
+'''
+'''
+a = "Hello! Good Morning"
+b = "Hello"
+print(len(a))
+print(len(b))
+print(max(a))
+print(min(a)) #Prints a space bc thats the smallest ascii value in that string
+print(min(b))
+
+#Ascii values
+print(ord('a'))
+print(ord('A'))
+print(ord('!'))
+print(ord(' '))
+print()
+#Get character using ASCII
+print(chr(33))
+'''
+#Mutability and Immutability
+# String is immutable
+#a = "Hello! Good Morning"
+#a[3] = '$' #Can't assign
+
+#del a
+#del a[4] #can't delete
+'''
+print()
+a = "Hello! How are you"
+b = "Hello Hi"
+result = (a == b)
+print(result)
+print(a > b)
+print(a < b)
+'''
+'''
+Q: Find out if the string is a palindrome or not
+'''
+'''
+userInput = input("Please type in input: ")
+print(userInput)
+userInputReverse = userInput[::-1]
+print(userInputReverse)
+result = (userInput == userInputReverse)
+print(result)
+'''
+'''
+#Calculate the area of circle and print it 
+pi = 3.14
+radius = float(input("Please type in the radius of the circle: "))
+print(radius ** 2 * pi)
+
+#Calculate the area of cylinder and print it 
+radius = float(input("Please type in the radius of the cylinder: "))
+height = float(input("Please type in the height of the cylinder: "))
+print(radius ** 2 * pi * height)
+
+#Take values a and b
+a = int(input("Type in the value of a: "))
+b = int(input("Type in the value of b: "))
+leftSide = ((a-b) ** 3)
+rightSide = ((a ** 3) - 3*a*b*(a-b)-(b**3))
+print(leftSide == rightSide) 
+'''
+#Take an integer value as input from the user and get last didget
+userInput = (input("Type in the value: "))
+print(userInput[len(userInput)-1])
