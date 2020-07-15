@@ -1,0 +1,98 @@
+'''
+a = 33
+b = 200
+if b > a:
+  print("b is greater than a")
+if b < a:
+  print ("b is less than a")
+
+a = 200
+b = 200
+
+if b >a:
+  print("b is greater than a")
+else:
+  if b == a:
+    print("b is equal to a")
+  else:
+    if (a < 100):
+      print("a is less than 100")
+    else:
+      print("b is less than a, b is not equal to a, and a is greater than or equal to 100")
+
+a = 200
+b = 33
+c = 500
+if a <b and c > a:
+  print("a is less than b and c is greater than a")
+
+if a > b or a > c:
+  print("a is greater than b or a is greater than c")
+
+x = 41
+if x > 10:
+  print ("Above 10")
+  if x > 20:
+    print("Above 20")
+  else:
+    print("Between 10 and 20")
+
+#Pass statement
+#if statements cannot be empty, but if you have some reason have an if statement with no contet
+x = 5
+if x > 10:
+  pass
+else:
+  print("no")
+
+#break statement
+#breaks out of a LookupError
+fruits = ["cherry","banana", "apple"]
+for fruit in fruits:
+  if fruit == "banana":
+    print("oops its a banana")
+    continue #stop current iteration and go to next
+  print(fruit)
+
+fruits = ["cherry","banana", "apple"]
+for fruit in fruits:
+  if fruit == "banana":
+    print("oops its a banana")
+    pass #does nothing
+  print(fruit)
+
+#using else with for loop
+'''
+'''
+for i in range(4):
+  if (i ==2):
+    break
+  print(i)
+else: #only runs if the loop is executed properly
+  print("Else in for loop")
+'''
+print(range(5))
+aTuple = (1, 'John', 1+3j)
+print((aTuple[2]))
+print(-17//4)
+print (36/4)
+x = 100
+y = 50
+print(2**3**2)
+print(int(2.99))
+str = "hello my name is James bond"
+print(str.capitalize())
+
+aList = [5,10,15,25]
+print(aList[::-1])
+
+l = [None] * 10
+print (l) 
+'''
+a = ["abc"] * 10
+print (a)
+
+aList = [4,8,12,16]
+aList[1:4] = [20,24,28,36,48]
+print(aList)
+'''
