@@ -1,0 +1,33 @@
+'''
+Tuple:
+This python data structure is like a list in python
+It is a heterogenous container for items
+Difference between the two (typle and list) is that a list is mutable, but a tuple is immutable
+This means that while you can reassign or delete an entire tuple, but you cannot do the same to a single item or a slice
+'''
+
+d = (1, 2, "buenos dias", 3, [1, 2, ["Hi", 1, 2], "Ssup", 100, [ "Hello", "Hola"]], ["Bonjour", "Ola"], 50, 25, ["Ciao","Namaste"])
+#Can't reassign
+#d[2] = 5
+#Can't delete
+#del d[2]
+del d
+#print(d) cant print       
+
+'''
+Set:
+Mathematical set. It doesn't hold duplicate values and its ORDERD (for numbers), but for letters/strings (it will NOT ORDER, WILL BE RANDOM EVERY RUN). 
+It is mutable, unlike a tuple. 
+'''
+mySet = {3,1,2}
+print(mySet)
+
+ls = [1,1,1,1,2,2,2,3,3,3,4,5,6,7,7]
+ls = set(ls)
+list2 = ['g','c','c']
+list2 = set(list2)
+list1 = ['gasdf','asdfasc','dscasdf', 'gasdf']
+list1 = set(list1)
+print(list1)
+print(ls)
+
