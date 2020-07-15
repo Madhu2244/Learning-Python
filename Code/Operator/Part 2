@@ -1,0 +1,66 @@
+'''
+Logical Operators
+True 1
+False -
+and -> *
+or -> +
+
+1 * 1 = 1
+1 * 0 = 0
+0 * 0 = 0
+
+1 + 1 = 1
+1 + 0 = 1
+0 + 0 = 0
+
+not 1 = 0
+not 0 = 1
+
+
+print(True and True)
+print(True and False)
+print(False and False)
+
+print(True or True)
+print(True or False)
+print(False or False)
+
+print(not True)
+print(not False)
+
+x = 10
+print (x > 10 and x ==10)
+print (x > 10 or x ==10)
+print(not (x==10))
+
+Identity Operators is, is not 
+Identity Operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location
+
+# is -> Returns True if both variables are the same obejct 
+'''
+a = ["madhu"]
+b = ["madhu"]
+x = ["apple", "banana"] 
+y = ["apple", "banana"] 
+'''
+print (x == y)
+print (a == b)
+print (a is b)
+print(x is y)
+z = x #both are location 123
+x[1] = "pear" #any change made to x happens to z
+print (z)
+print (x is z)
+print (a is b) #prints false because a is not the same object as b, even if they have the same content
+'''
+
+#in  
+print("banana" in y)
+print("banana" in x)
+print (x in y) # prints false
+
+#not in 
+print("pear" not in y)
+print("banana" not in x)
+
+
