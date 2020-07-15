@@ -1,0 +1,147 @@
+'''
+A list a 'sequence data' type
+
+numbers = [1,2,3,4]
+strings = ["Hi", "Hola", "Hello"]
+
+#homogenous vs heterogenous refers to the type
+#string is always string data 
+#list can contain multiple types
+
+#String is homogenous
+s = "Hello123"
+#list is Heteogenous
+ls = [1,2,"Hi",[4.2,2,["Hi", 1, 3.3], 6.5], 5]
+
+#print from list    
+print(ls[1])
+print(ls[3])
+print(ls[3][0])
+print(ls[3][2])
+print(ls[3][2][0])
+
+#slicing with list
+d = [1, 2, "buenos dias", 3, [1, 2, ["Hi", 1, 2], "Ssup", 100, [ "Hello", "Hola"]], ["Bonjour", "Ola"], 50, 25, ["Ciao","Namaste"]]
+print (d[4][2][:2])
+
+
+fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana', 'papaya']
+numbers = [4,5,1,3,5,10,45,32,54]
+#count()
+ct = fruits.count('apple')
+print("Count: ", ct)
+#index
+ind = fruits.index('banana')
+print("Index is ", ind)
+#append()
+fruits.append('grape')
+print(fruits)
+#sort
+fruits.sort()  
+numbers.sort()  
+print(fruits)
+print(numbers)
+#d = [1, 2, "buenos dias", 3, [1, 2, ["Hi", 1, 2], "Ssup", 100, [ "Hello", "Hola"]], ["Bonjour", "Ola"], 50, 25, ["Ciao","Namaste"]]
+#d.sort()  you cant sort heterogenous
+
+#len()  
+lnFruits = len(fruits)
+lnNumbers = len(numbers)
+print("Length of fruits: ", lnFruits)
+print("Length of numbers: ", lnNumbers)
+
+#max
+mx = max(fruits)
+print("Max: ", mx)
+
+#min()  
+mn = min(numbers)   
+print("Min: ", mn)  
+
+#reverse()
+print("Before reverse, ", numbers)
+numbers.reverse() 
+print("Reverse numbers:", numbers)
+
+#insert()
+numbers.insert(1,"Hello")
+print(numbers)
+
+#extend()
+#Alternative to arithmetic + operator between two lists
+fruits.extend(numbers)
+print(fruits)
+print() 
+print() 
+#this proves that lists are mutatible
+a = [-1, 1, 66.25, 333, 1, 333, 1, 333, 1234.5, 213.9, 543.5, 212.54, 54]
+
+#Item assignment
+print(a)
+a[4] = "Hello"
+print(a)
+
+#Item deletion
+del (a[4])
+print(a)
+a.remove(a[-1]) #deletes last element
+print(a)
+a.remove(333) #deletes first element of this
+print(a)
+
+#clear a list
+a.clear()
+print(a)
+
+d = [1, 2, "buenos dias", 3, 1, 2, ["Hi", 1, 2], "Ssup", 100, [ "Hello", "Hola"], ["Bonjour", "Ola"], 50, 25, ["Ciao","Namaste"]]
+d[6].reverse()
+d[9].reverse() 
+d[10].reverse() 
+d[-1].reverse()
+print(d)
+
+
+list1 = ["a", "b", ["c", ["d", "e", ["f", "g"], "k"], "l"], "m", "n"]
+listAdd =  ["h", "i", "j"]
+list1[2][1][2].extend(listAdd)
+print(list1)
+
+# Concatenate two lists in the following order (Give them 10-15 mins and solve yourself)
+list1 = ["Hello ", "take "]
+list2 = ["Dear", "Sir"]
+list3 = []
+list3.insert(0, list1[0] + list2[0])
+list3.insert(1, list1[0] + list2[1])
+list3.insert(2, list1[1] + list2[0])
+list3.insert(3, list1[1] + list2[1])
+print (list3)
+# Expected Output: ['Hello Dear', 'Hello Sir', 'take Dear', 'take Sir']
+
+# Given a two Python list. Go through both lists simultaneously such that list1 should display item in original order and list2 in reverse order (Give them 15-20 mins and solve yourself)
+list1 = [10, 20, 30, 40]
+list2 = [100, 200, 300, 400]
+# Expected output:
+#   [10, 400]
+#   [20, 300]
+#   [30, 200]
+#   [40, 100]
+list2.reverse()
+list3 = [list1[0],list2[0]]
+list4 = [list1[1],list2[1]]
+list5 = [list1[2],list2[2]]
+list6 = [list1[3],list2[3]]
+print(list3)
+print(list4)
+print(list5)
+print(list6)
+'''
+# Add item 7000 after every 6000 in the following Python List (Give them 10-15 mins and solve yourself)
+# Expected output: [10, 20, [300, 400, 500, [5000, 6000, 7000], 6000, 7000], 30, 6000, 7000]
+list1 = [10, 20, [300, 400, [5000, 6000], 500, 6000], 30, 6000]
+ind = list1.index(6000)
+list1.insert(ind+1,7000)
+ind = list1[2].index(6000)-
+list1[2].insert(ind+1,7000)
+ind = list1[2][2].index(6000)
+list1[2][2].insert(ind+1,7000)
+print(list1)
