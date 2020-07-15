@@ -1,0 +1,48 @@
+'''
+#for and while loops
+#for loop in python is like a for each loop in java
+fruits = ["apple","banana"]
+for x in fruits:
+  print(x)
+
+myDict1 = {
+  "English": "Hi",
+  1: "Hello",
+  "Spanish1": "Hola",
+  2: [1,2,"Hallo"],
+  3: {1,2,2,2,2,3,3,3,4,5},
+  "Spanish": {
+    1: "Hi",
+    "English": 200
+  }
+}
+
+for x in "banana":
+  print (x)
+
+for x in myDict1:
+  print (x)
+
+#range()
+#create a sequence of numbers from start to end position and print each item in the sequence
+
+x = range(6)
+print (x)
+for i in x:
+  print(i)
+'''
+for i in range (6):
+  print(i)
+
+print()
+print()   
+for i in range (0,10,2):
+  print (i)
+
+print()
+print()
+count = 0
+while count < 5:
+  print(count)
+  count +=2
+
