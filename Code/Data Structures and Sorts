@@ -1,0 +1,178 @@
+'''
+What is a data structure?
+A data structure is a particular way of organizing data in a computer so that it can be used effectively.
+
+Types:
+- Array
+[1,2,3,4]
+["hello","hola"]
+
+-Queue
+-Stack
+
+arrayNum = [1,2,3,4]
+arrayGreet ["hello","hola"]
+
+Linked list
+Computer Memory 
+1: 100
+2: 
+3: 200
+4: 
+5:
+6: 300
+
+Normal Linked list
+head[ptr(100)] -> [100|ptr(200)] -> [200|ptr(300)] -> [300|ptr(null)] -> null
+
+Circiular Linked list
+head[ptr(100)] -> [100|ptr(200)] -> [200|ptr(300)] -> [300|ptr(100)] -> [100|ptr(200)]
+
+Queue in Python:
+Queue is a linear data structurethat stores items in First In First Out (FIFO) manner. With a queue the least recently added item is removed first.
+
+7 6 5 4 [[]]
+
+Operations associated with this queue:
+
+Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an overflow condition 
+
+Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. Underflow condition.  
+
+Front: get the front item from queue
+
+Rear: Get the last item from queue.
+
+'''
+'''
+queue = []
+
+queue.append(1)
+queue.append(2)
+queue.append(3)
+queue.append(4)
+
+print("My queue:", queue)
+print("Rear Element: ", queue[-1])
+print("Front Element: ", queue[0])
+
+print("Popped Element: ", queue.pop(0))
+print("Queue: ", queue)
+print("Popped Element: ", queue.pop(0))
+print("Queue: ", queue)
+print("Popped Element: ", queue.pop(0))
+print("Queue: ", queue)
+print("Popped Element: ", queue.pop(0))
+print("Queue: ", queue)
+#if you pop nothing (after you popped the whole list), then it will produce index error.compile
+
+queue = []
+n = int(input("Enter the length of our queue: "))
+#Enqueue
+for i in range(1,n+1):
+  queue.append(i)
+print("My queue:", queue)
+print() 
+
+#Dequeue
+for i in range(n+1):
+  if (len(queue) ==0):
+    print("queue is empty right now!")
+    break
+  print("Popped element: ", queue.pop(0))
+  print("After popping: ", queue)
+'''
+'''
+Stack:
+Linear data structure that stores items in a Last-In/First_Out(LIFO) or First-In/Last-Out(FILO) manner.
+
+Operations:
+Pop: Deleting/Removing the 'top' most element(Underflow condition)
+Push: Adding to the "top" of the stack (Overflow condition)
+'''
+'''
+#implementation
+stack = []
+#push
+#stack.append('Madhu')
+#stack.append('Mom')
+#stack.append('Dad')
+
+#print("My stack: ", stack)
+print()  
+
+n = int(input("What is the length : "))
+
+for i in range(n+1):
+  stack.append(i)
+print(stack)
+
+for i in range (n+1):
+  if (len(stack)==0):
+    print("It's all popped")
+  else:
+    print("Popped element: ", stack.pop())
+print(stack)
+'''
+'''
+#Pop
+print("Popped element: ", stack.pop())
+print("After popping:", stack)
+print("Popped element: ", stack.pop())
+print("After popping:", stack)
+print("Popped element: ", stack.pop())
+print("After popping:", stack)
+#produces error if you overpop
+'''
+'''
+ls = [5,4,3,2,1]
+n = len(ls)
+#bubble sort
+for i in range(n):
+  for j in range((n-i)-1):
+    if ls[j] > ls[j+1]:
+      temp = ls[j]
+      ls[j] = ls[j+1]
+      ls [j+1] = temp
+    print(ls)
+print (ls)
+
+'''
+A = [29,72,98,13,87,66,52,51,36]
+n = len(A)
+
+#Traverse through all the elements
+for i in range(n): #[0...4]; i = 0
+  #Find the maximum element of the unsorted array
+  #[5,4,3,2,1]   
+  minIdx = i # minIdx = 0
+  for j in range (i+1,n):
+    if A[minIdx] > A[j]:
+      minIdx = j
+  print(minIdx," ",A[minIdx])
+  #Swap the minimum element with the first element
+  temp = A[i]
+  A[i] = A[minIdx]
+  A[minIdx] = temp
+  print(A)
+
+print(A)
+
+'''
+A = [29,72,98,13,87,66,52,51,36]
+#Traverse through all the elements
+for i in range(n): #[0...4]; i = 0
+  #Find the maximum element of the unsorted array
+  #[5,4,3,2,1]   
+  maxIdx = i # minIdx = 0
+  for j in range (i+1,n):
+    if A[maxIdx] < A[j]:
+      minIdx = j
+  print(maxIdx," ",A[maxIdx])
+  #Swap the minimum element with the first element
+  temp = A[i]
+  A[i] = A[maxIdx]
+  A[maxIdx] = temp
+  print(A)
+
+'''
