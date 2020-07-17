@@ -1,0 +1,147 @@
+'''
+functions
+
+def my_function():
+  print("Hello from a function")
+  print("Hello from a function")
+  print("Hello from a function")
+  print("Hello from a function")
+  print("Hello from a function")
+  print("Hello from a function")
+  print("Hello from a function")
+
+
+my_function()
+
+def fun(fname, lname= "ASDJKL"):
+  print("First Name is: ",fname)
+  print("Last Name is: ",lname)
+  print()
+
+print()
+fun("Madhu", "Sharma")
+fun("Devaansh", "Smart")
+fun("Sam", "Blake")
+fun("Jake") #Will use the default last name if nothing is passed through
+
+def fun3(child3,child1,child2):
+  print("Youngest child:", child3)
+
+fun3(child1 = "Emily", child2="Tobias", child3 = "Ishan")
+
+#This function will recieve arguments as a tuple
+def fun5(*kids):
+  print("The youngest kid is: " + kids[1])
+
+fun5("Emily","Tobias","ishan")
+
+
+number1 = int(input("Type a number: "))
+number2 = int(input("Type a number: "))
+product = number1 * number2
+if (product >=1000):
+  print("The sum is:", number1 + number2)
+else:
+  print("The product is:", product)
+
+
+for x in range(1,10):
+  print(x + x - 1)
+
+for x in range(0,8):
+  if (x == 3 or x ==6):
+    continue
+  print(x)
+
+string = input("Type in a string: ")
+index = 0;
+while(index < len(string)):
+  if (index % 2 == 0):
+    print(string[index])
+  index +=1
+
+
+for i in range(0,len(string)):
+  if (i % 2 == 0):
+    print(string[i])
+
+
+numList = [10,20,30,40,10]
+if(numList[0] == numList[-1]):
+  print("True")
+else:
+  print("False")
+
+
+numList = [10,20,33,46,55]
+for num in numList:
+  if num%5 == 0:
+    print(num)
+
+
+num = input("Type a number: ")
+numReversed = num[::-1]
+if (numReversed == num):
+  print("True")
+else:
+  print("False")
+
+
+ls = [10,20,23,11,17]
+output = []
+for num in ls:
+  if (num % 2 == 1):
+    output.append(num)
+print (output)
+
+temp = int(input("What is the temperature? "))
+units = input("What is the units? Type \"C\" for Celsius or \"F\" for Fahrenheit ")
+if (units == "C"):
+  output = (temp * 9 / 5) + 32
+elif (units == "F"):
+  output = (temp - 32) * 5 / 9
+else:
+  print("You did not give correct units input")
+print(output)
+
+for num in range(10,101):
+  if (num % 7 == 0 and num % 5 == 0):
+    print(num)
+
+numbers = (1,2,3,4,5,6,7,8,9)
+evenCount = 0
+oddCount = 0
+for num in numbers:
+  if (num%2 ==0):
+    evenCount+=1
+  else:
+    oddCount+=1
+print("Number of even numbers : ", evenCount)
+print("Number of odd numbers : ", oddCount)
+
+for num in range(0,51):
+  if num%3==0 and num%5==0:
+    print("FizzBuzz")
+  elif num%3 ==0:
+    print("Fizz")
+  elif num%5 ==0:
+    print("Buzz")
+  else:
+    print(num)
+
+
+for num in range(1500,2701):
+  if (num%7==0 and num%5==0):
+    print(num)
+'''
+
+string = input("Type a string: ")
+letterCount = 0
+numberCount = 0
+for char in string:
+  if char.isalpha():
+    letterCount+=1
+  elif char.isdigit():
+    numberCount+=1
+print("Letter count: ",letterCount)
+print("Number count: ",numberCount)
