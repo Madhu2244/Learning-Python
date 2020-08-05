@@ -1,0 +1,32 @@
+import pandas as pd
+import math
+
+cars = pd.read_csv('C:/Users/madhu/Documents/Coding/AgeSalaryExperience.csv')
+ageList = cars.iloc[:, 0]
+salaryList = cars.iloc[:, 1]
+experienceList = cars.iloc[:, 2]
+print(cars.iloc[0])
+
+def get_distance(set_of_instances, test_row, numberOfNeighbors):
+    dist = []
+    for i in range(0, len(set_of_instances) - 1):
+        calc = math.pow(set_of_instances.iloc[i,0] - test_row[0], 2)
+        calc += math.pow(set_of_instances.iloc[i,1] - test_row[1], 2)
+        calc += math.pow(set_of_instances.iloc[i,2] - test_row[1], 2)
+        calc = math.sqrt(calc)
+        calc = [calc, i, set_of_instances.iloc[i, 3]]
+        dist.append(calc)
+    dist.sort()
+    classificationCount = 0.0
+    for i in range(0,numberOfNeighbors):
+        classificationCount += dist[i][2]
+        print(classificationCount)
+    if classificationCount >= (numberOfNeighbors/2):
+        classificationCount = 1
+    else:
+        classificationCount = 0
+    print("The classification is ", classificationCount)
+    return dist[:numberOfNeighbors]
+
+
+print(get_distance(cars, [22, 64000, 4], 5))
