@@ -1,0 +1,48 @@
+import pandas as pd
+cars = pd.read_csv('C:/Users/madhu/Documents/Coding/agee.csv')
+ageList = cars.iloc[:, 0]
+priceList = cars.iloc[:, 1]
+def mean_Squared_error(carAge, Price, Weight, bias):
+    totalSum = 0.0
+    for i in range(0, len(carAge)):
+        totalSum += ((carAge[i]*Weight+bias)-Price[i])**2
+    return totalSum / len(carAge)
+
+print(mean_Squared_error(ageList,priceList,-2000,100000))
+
+def weight_updation(car_age, price, weight, bias, eta):
+    b_grad = 0
+    w_grad = 0
+    n = len(car_age)
+
+    for i in range(n):
+        w_grad += (2 * car_age[i])*((weight * car_age[i] + bias) - price[i])
+        b_grad += 2 * ((weight * car_age[i] + bias) - price[i])
+    weight -= eta * (w_grad / n)
+    bias -= eta * (b_grad / n)
+    return weight, bias
+
+# epochs = iteration
+def train(car_age, price, weight, bias, eta, epochs):
+    cost_lst = []
+    prev_w = 0.00
+    prev_b = 0.00
+    i = 0
+    while(True):
+        weight,bias = weight_updation(car_age,price,weight,bias,eta)
+        if (round(weight,2) == round(prev_w,2)) and (round(bias,2) == round(prev_b,2)):
+            break
+        else:
+            prev_w, prev_b = weight,bias
+        cost = mean_Squared_error(car_age,price,weight,bias)
+
+        if i % 10 == 0:
+            print("epoch = {:d} weight = {:.2f} bias = {:.4f} cost = {:.2f}".format(i,weight,bias,cost))
+        i += 1
+    return weight, bias, cost_lst
+
+
+def predict_price(car_age, weight, bias):
+    price = round(car_age*weight + bias)
+    print(price)
+
