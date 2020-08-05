@@ -5,28 +5,57 @@ cars = pd.read_csv('C:/Users/madhu/Documents/Coding/AgeSalaryExperience.csv')
 ageList = cars.iloc[:, 0]
 salaryList = cars.iloc[:, 1]
 experienceList = cars.iloc[:, 2]
-print(cars.iloc[0])
 
 def get_distance(set_of_instances, test_row, numberOfNeighbors):
-    dist = []
-    for i in range(0, len(set_of_instances) - 1):
+    dist = [] #create the list to return
+
+    for i in range(0, len(set_of_instances) - 1): #find the distance between the test point and all the other points
         calc = math.pow(set_of_instances.iloc[i,0] - test_row[0], 2)
         calc += math.pow(set_of_instances.iloc[i,1] - test_row[1], 2)
         calc += math.pow(set_of_instances.iloc[i,2] - test_row[1], 2)
         calc = math.sqrt(calc)
-        calc = [calc, i, set_of_instances.iloc[i, 3]]
+        calc = [calc, i, set_of_instances.iloc[i, 3]] #prepping the value to store in the distance list
         dist.append(calc)
-    dist.sort()
+    dist.sort() #sort the list
     classificationCount = 0.0
-    for i in range(0,numberOfNeighbors):
+    for i in range(0,numberOfNeighbors): #add all the classification numbers
         classificationCount += dist[i][2]
-        print(classificationCount)
-    if classificationCount >= (numberOfNeighbors/2):
+    if classificationCount >= (numberOfNeighbors/2): #if the classification number is greater than 2.5 then its 1 otherwise its 0
         classificationCount = 1
+        #print("The switch is positive")
+        return 1
     else:
         classificationCount = 0
-    print("The classification is ", classificationCount)
-    return dist[:numberOfNeighbors]
+        #print("The switch is negative")
+        return 0
+    #return dist[:numberOfNeighbors] #return from 0 to number of neighbors you want
 
 
-print(get_distance(cars, [22, 64000, 4], 5))
+
+def findBestKValue(set_of_instances, lst_test, y_actual):
+    prevAccuracy = 0.00
+    accuracy = 0.00
+    count = 1
+    while True:
+        output = []
+        print(prevAccuracy,accuracy)
+        if (count > len(set_of_instances.iloc[:,0])-1):
+            return("No value of K works for this.")
+        if (accuracy == 1.00):
+            return (accuracy, count - 1)
+        if accuracy >= prevAccuracy:
+            prevAccuracy = accuracy
+            for i in range(len(lst_test)):
+                output.append(get_distance(set_of_instances,lst_test[i],count))
+            percentageCount = 0
+            for i in range(len(y_actual)):
+                if y_actual[i] == output[i]:
+                    percentageCount +=1
+            accuracy = percentageCount/len(y_actual)
+            count +=1
+            #print(output,accuracy,prevAccuracy)
+        else:
+            return(prevAccuracy,count-1)
+            break
+print(findBestKValue(cars,[(33,91000,5),(45,110000,4),(36,97000,5),(23,76000,6)],[0,1,0,0]))
+print(findBestKValue(cars,[(14,33000,1),(16,42000,4),(12,20000,1)],[0,0,0]))
