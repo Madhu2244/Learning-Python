@@ -1,0 +1,20 @@
+import os
+
+print("Hello World!")
+f = open('testImage.JPG','rb')
+
+#print(f.readlines()) - its a list
+#for line in f: - print each part of list
+    #print(line)
+
+newFile = open('newfile.jpg','wb')
+
+#newFile.write(f.readlines) doesnt work bc need byte object not list
+
+for line in f:
+    newFile.write(line)
+
+
+#reading from directory
+g = open('C:\\Users\\madhu\\Pictures\\School\\Math Club\\Kahoot\\Question 11.JPG', 'rb')
+print(g.readlines())
