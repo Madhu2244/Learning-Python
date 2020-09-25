@@ -1,0 +1,163 @@
+def display_hangman(tries):
+    stages = [  # final state: head, torso, both arms, and both legs
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / \\
+                   -
+                """,
+                # head, torso, both arms, and one leg
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / 
+                   -
+                """,
+                # head, torso, and both arms
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |      
+                   -
+                """,
+                # head, torso, and one arm
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|
+                   |      |
+                   |     
+                   -
+                """,
+                # head and torso
+                """
+                   --------
+                   |      |
+                   |      O
+                   |      |
+                   |      |
+                   |     
+                   -
+                """,
+                # head
+                """
+                   --------
+                   |      |
+                   |      O
+                   |    
+                   |      
+                   |     
+                   -
+                """,
+                # initial empty state
+                """
+                   --------
+                   |      |
+                   |      
+                   |    
+                   |      
+                   |     
+                   -
+                """
+    ]
+    return stages[tries]
+
+import random
+from words import word_list
+
+def get_word():
+  word = random.choice(word_list)
+  return word.upper()
+
+def play (word):
+  word_completion = "_" * len(word)
+  word_length = len(word)
+  guessed = False
+  gussed_letter = []
+  guessed_words = []
+  tries = 6
+
+  print("Lets play Hangman!")
+  print(display_hangman(tries))
+  print(word_completion, " Word Length: ", word_length)
+  print() 
+
+  while not guessed and tries > 0:
+    guess = input("Please guess a letter or word: ").upper()
+    print(word_completion, " ", "Word Length: ", word_length)
+    #If a letter is guessed
+    if (len(guess) == 1 and guess.isalpha()):
+      if guess in gussed_letter:
+        print("you have already guessed the letter", guess)
+      elif guess not in word:
+        print(guess, " is not in the word.")
+        tries-=1
+        gussed_letter.append(guess)
+      else:
+        print("Good job,", guess, "is in the word!")
+        gussed_letter.append(guess)
+        word_as_list = list(word_completion) 
+        # Convert word to list as string is immutable
+
+        # Word = S A S A A S A A
+        # Getting the indices at which the letter is situated in word
+        indices = [] 
+        for i in range(len(word)): 
+          if(word[i] == guess): # i = 2 ; (word[i] = S) == (guess = S)
+            indices.append(i)
+
+        # indices = [0, 2, 5]
+        # word_completion: _ _ _ _ _ _ _ _ 
+        # Updating the word_completion
+        for index in indices:
+          word_as_list[index] = guess
+        # word_as_list: [S, _, S, _, _, S, _, _] 
+        word_completion = "".join(word_as_list) # Convert List back to string
+        
+        # word_as_list: [S, A, S, A, A, S, A, A] 
+        # word_completion = "SASAASAA"
+        # Hurray he has guessed the entire word
+        if "_" not in word_completion:
+          guessed = True
+
+    # If a guessed input is a word
+    elif len(guess) == len(word) and guess.isalpha():
+      if guess in guessed_words:
+        print("You already guessed the word", guess)
+
+      # If the user could not guess the word
+      elif guess != word:
+        print(guess, "is not the word.")
+        tries -= 1
+        guessed_words.append(guess)
+      
+      # If the user guessed the word directly
+      else:
+        guessed = True
+        word_completion = word
+
+    # If an invalid input is given
+    else:
+      print("Not a valid input")
+
+    print(display_hangman(tries)) # Show hangman in every loop
+    print(word_completion) # Diplay the word that was guessed so far
+    print()
+
+  if guessed: # User guessed the word
+    print("Congrats, you guessed the right word! You win!")
+  else:
+    print("Sorry, you ran out of trie. The word was " + word + ". Maybe next time!")
+
+word = get_word()
+play(word)
