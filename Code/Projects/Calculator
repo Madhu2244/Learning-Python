@@ -1,0 +1,85 @@
+'''
+Calculator Functionalities:
+Add
+Subtract
+Multiply
+Divide
+Floor 
+Modulo 
+Exponent
+'''
+#import
+import math
+
+#This function adds two numbers
+def add(x,y):
+  return x + y
+
+#This function subtracts two numbers
+def subtract(x,y):
+  return x - y
+
+#This function multiplies two numbers
+def multiply(x,y):
+  return x * y
+
+#This function divides one number by another
+def divide(x,y):
+  return x/y
+
+#This function takes one number to the power of another number (exponents)
+def exponent(x,y):
+  return x ** y
+
+#This function divides one number by another but rounds down to the next whole number
+def floorDivide(x,y):
+  return x //y
+
+#This function divides one number by another but rounds up to the next whole number
+def ceilDivide(x,y):
+  return (math.ceil(x/y))
+
+#This function divides one number by another and returns the remainder
+def remainder(x,y):
+  return x % y
+
+print("""Select Operation:
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Floor Divide   
+6. Ceiling Divide   
+7. Modulo 
+8. Exponent""")
+
+while True:
+  choice = input("Enter choice (1/2/3/4/5/6/7/8): ")
+  if choice in ('1','2','3','4','5','6','7','8'):
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+
+    if choice == '1':
+      print(num1,"+", num2, "=", add(num1,num2))
+    elif choice == '2':
+      print(num1,"-", num2, "=", subtract(num1,num2))
+    elif choice == '3':
+      print(num1,"*", num2, "=", multiply(num1,num2))
+    elif choice == '4':
+      print(num1,"/", num2, "=", divide(num1,num2))
+    elif choice == '5':
+      print(num1,"/", num2, "=", floorDivide(num1,num2), "(Rounded DOWN)")
+    elif choice == '6':
+      print(num1,"/", num2, "=", ceilDivide(num1,num2), "(Rounded UP)")
+    elif choice == '7':
+      print(num1,"%", num2, "=", remainder(num1,num2))
+    elif choice == '8':
+      print(num1,"^", num2, "=", exponent(num1,num2))
+    
+    ans = input("Exit? (Y/N):").upper()
+    if(ans == "Y"):
+      break
+    else:
+      continue
+  else:
+    print("Please enter a valid input")
