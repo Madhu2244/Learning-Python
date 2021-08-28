@@ -131,11 +131,19 @@ def test_assert():
     midterm_grade = [66, 99, 100]
     age = [17, 15]
     #length of age is diff
-    assert len(names) == len(midterm_grade) == len(age), 'length of names, midterm_grade, and age must be the same.'
+    # assert len(names) == len(midterm_grade) == len(age), 'length of names, midterm_grade, and age must be the same.'
     students = list(zip(names, midterm_grade, age))
     print(students) # prints [('Madhu', 66, 17), ('Kevin', 99, 15)]
                     # (ignores the last person because age length is 1 less.
 
+def map_lambda_on_complex_functions():
+    ar = [('Madhu', 66, 17), ('Kevin', 99, 15), ('Shrey', 100, 19)]
+    print(list(map(lambda x: tuple(map(str, x)), ar)))
+
+def tenary_operators():
+    a = 0
+    b = 0
+    c = True if a == b else False
 
 if __name__ == '__main__':
     main.main()
