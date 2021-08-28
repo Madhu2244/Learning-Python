@@ -29,6 +29,8 @@ def main():
     tricks.test_map()
     tricks.test_zip()
     tricks.test_assert()
+    tricks.map_lambda_on_complex_functions()
+
 if __name__ == '__main__':
     # do something
     # anything definied here is a global variable.
